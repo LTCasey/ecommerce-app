@@ -2,6 +2,12 @@
 
 A complete e-commerce web application built with Go Fiber framework and Stripe payment integration.
 
+> **Security Notice:**
+> - **Never commit your real API keys, secrets, or sensitive data to this repository.**
+> - Use environment variables or a `.env` file (which should be added to `.gitignore`) to manage secrets locally.
+> - If sharing this project, provide a `.env.example` file with only variable names and placeholder values.
+> - **Never share your Stripe secret keys publicly.**
+
 ## Features
 
 - Product listing and detail pages
@@ -18,7 +24,7 @@ A complete e-commerce web application built with Go Fiber framework and Stripe p
 
 1. Clone the repository:
 ```
-git clone https://github.com/yourusername/ecommerce-app.git
+git clone https://github.com/LTCasey/ecommerce-app.git
 cd ecommerce-app
 ```
 
@@ -38,38 +44,27 @@ set STRIPE_SECRET_KEY=your_stripe_secret_key
 set STRIPE_WEBHOOK_SECRET=your_webhook_secret_key
 ```
 
+Alternatively, create a `.env` file in your project root (do not commit this file):
+```
+STRIPE_SECRET_KEY=your_stripe_secret_key
+STRIPE_WEBHOOK_SECRET=your_webhook_secret_key
+```
+
+> **Tip:** Add `.env` to your `.gitignore` to prevent accidental commits of sensitive data.
+
 ## Running the Application
 
-Start the server:
+1. Ensure your environment variables are set as described above.
+2. Start the server:
 ```
 go run main.go
 ```
+3. Open your browser and navigate to `http://localhost:3000` to use the app.
 
-The application will be available at `http://localhost:3000`
+## How the App Runs
 
-## Project Structure
-
-- `/handlers` - HTTP request handlers
-- `/models` - Data models and business logic
-- `/static` - Static assets (CSS, JavaScript, images)
-- `/views` - HTML templates
-- `main.go` - Application entry point
-
-## Stripe Integration
-
-This application uses Stripe Checkout for payment processing. To fully use this feature:
-
-1. Create a Stripe account at https://stripe.com
-2. Get your API keys from the Stripe dashboard
-3. Set the environment variables as described in the Installation section
-4. For webhook testing, use Stripe CLI or a service like ngrok to forward webhook events to your local server
-
-## Production Deployment
-
-For production deployment, consider the following steps:
-
-1. Set up a proper database for product and order storage
-2. Configure proper error handling and logging
-3. Set up TLS/SSL for secure communication
-4. Configure proper session management
-5. Implement user authentication 
+- **Browse Products:** Users can view a list of products and see details for each product.
+- **Add to Cart:** Users can add products to their shopping cart.
+- **View Cart:** The cart page shows all selected items and the total price.
+- **Checkout:** Users proceed to checkout, where payment is handled securely via Stripe Checkout.
+- **Order Completion:** After successful payment, users receive confirmation, and the order is processed.
