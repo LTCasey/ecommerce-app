@@ -1,0 +1,20 @@
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header bg-white">
+                <h4 class="mb-0">Checkout</h4>
+            </div>
+            <div class="card-body">
+                <h5 class="mb-4">Enter your email to continue</h5>
+                <form action="/checkout" method="POST">
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Email Address</label>
+                        <input type="email" class="form-control" id="email" name="email" required>
+                        <div class="form-text">We'll send your order confirmation to this address.</div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Continue to Payment</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div> 

@@ -1,0 +1,61 @@
+<h1>Homepage</h1>
+
+<!-- Hero Section -->
+<div class="bg-light p-5 rounded-lg mb-5">
+    <div class="container">
+        <h1 class="display-4">Welcome to our Store</h1>
+        <p class="lead">Shop the latest products at great prices. Free shipping on orders over $50!</p>
+        <a href="/products" class="btn btn-primary btn-lg">Shop Now</a>
+    </div>
+</div>
+
+<!-- Featured Products -->
+<div class="row">
+    <div class="col-12">
+        <h2 class="mb-4">Featured Products</h2>
+    </div>
+</div>
+
+<div class="row">
+    {{range .Products}}
+    <div class="col-md-4 mb-4">
+        <div class="card h-100">
+            <img src="{{.ImageURL}}" class="card-img-top" alt="{{.Name}}">
+            <div class="card-body">
+                <h5 class="card-title">{{.Name}}</h5>
+                <p class="card-text">{{.Description}}</p>
+                <p class="card-text fw-bold">{{.FormatPrice}}</p>
+                <a href="/products/{{.ID}}" class="btn btn-primary">View Details</a>
+            </div>
+        </div>
+    </div>
+    {{end}}
+</div>
+
+<!-- Benefits Section -->
+<div class="row mt-5">
+    <div class="col-12">
+        <h2 class="mb-4">Why Shop With Us</h2>
+    </div>
+    <div class="col-md-4 text-center mb-4">
+        <div class="p-3">
+            <i class="bi bi-truck fs-1 text-primary"></i>
+            <h4 class="mt-3">Fast Delivery</h4>
+            <p>Get your products delivered within 2-3 business days.</p>
+        </div>
+    </div>
+    <div class="col-md-4 text-center mb-4">
+        <div class="p-3">
+            <i class="bi bi-shield-check fs-1 text-primary"></i>
+            <h4 class="mt-3">Secure Payment</h4>
+            <p>Shop with confidence using our secure payment system.</p>
+        </div>
+    </div>
+    <div class="col-md-4 text-center mb-4">
+        <div class="p-3">
+            <i class="bi bi-arrow-repeat fs-1 text-primary"></i>
+            <h4 class="mt-3">Easy Returns</h4>
+            <p>30-day hassle-free return policy.</p>
+        </div>
+    </div>
+</div>
